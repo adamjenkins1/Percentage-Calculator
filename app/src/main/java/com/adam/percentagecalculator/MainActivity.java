@@ -43,12 +43,15 @@ public class MainActivity extends AppCompatActivity {
         calcBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                float percentage = Float.parseFloat(percentageText.getText().toString());
-                float decimal = percentage/100;
-                float total = decimal * Float.parseFloat(numberText.getText().toString());
-                totalTextView.setText(Float.toString(total));
+                if (!percentageText.getText().toString().equals("") && !numberText.getText().toString().equals("")) {
+                    float percentage = Float.parseFloat(percentageText.getText().toString());
+                    float decimal = percentage / 100;
+                    float total = decimal * Float.parseFloat(numberText.getText().toString());
+                    totalTextView.setText(Float.toString(total));
+                }
+                else
+                    totalTextView.setText(Integer.toString(0));
             }
-
         });
     }
 
